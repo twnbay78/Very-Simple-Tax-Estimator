@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tax Time BABY</title>
+		<script src="js/test2.js"></script>
+	</head>
+	<body>
+		<FORM NAME = "taxcalc">
+			<TABLE BORDER CELLPADDING=3>
+				<!-- Filing Status-->
+				<TR>	
+					<TD>&nbsp;</TD>
+					<TD COLSPAN=3 BGCOLOR="d0d0d0">
+						<B>Select your filing status</B>
+						<SELECT NAME = "status" onChange = "compute()">
+							<OPTION VALUE=0 SELECTED>Single</OPTION>
+							<OPTION VALUE=1>Head of Household</OPTION>
+							<OPTION VALUE=2>Married, filing jointly</OPTION>
+							<OPTION VALUE=3>Married, filing separately</OPTION>
+						</SELECT>
+					</TD>
+				</TR>
+				<!-- Line 1: Income-->
+				<TR>	
+					<TD>1.</TD>
+					<TD BGCOLOR="d0d0d0"><B>Enter your adjusted gross income</B></TD>
+					<TD BGCOLOR="d0d0d0">
+						<INPUT TYPE="text" NAME = "income" SIZE = "12" onChange = "compute()"></INPUT>
+					</TD>
+				</TR>
+				<!-- Line 2: Deudction -->
+				<TR>
+					<TD>2.</TD>
+					<TD BGCOLOR="d0d0d0">
+						<B>Check here
+							<INPUT TYPE = "checkbox" NAME = "standard" CHECKED onClick="compute()"></INPUT>
+								for the standard deduction,<br>or enter your Itemized Deduction
+						</B>
+					</TD>
+					<TD BGCOLOR = "d0d0d0">
+						<INPUT TYPE = "text" NAME = "deduction" SIZE = "12" onChange = "this.form.standard.checked = false; compute()"></INPUT>
+					</TD>
+				</TR>
+				<!-- Line 3: subtraction -->
+				<TR>
+					<TD>3.</TD>
+					<TD>Subtract Line 2 from Line 1:</TD>
+					<TD><INPUT TYPE = "text" NAME = "line3" SIZE = "12" onChange = "conmptue()"></INPUT></TD>
+				</TR>
+				<!-- Line 4: exemptions -->
+				<TR>
+					<TD ROWSPAN = "2">4.</TD>
+					<TD BGCOLOR = "d0d0d0"><B>Enter the number of exemtions:</B></TD>
+					<TD><INPUT TYPE = "text" NAME = "num_exemptions" SIZE = "12" onChange = "compute()"></INPUT>
+				</TR>
+				<!-- Line 4: continued-->
+				<TR>
+					<TD>Multiply number of exemptions by $2,550</TD>
+					<TD><INPUT TYPE = "text" NAME = "exemption" SIZE = "12" onChange = "compute()"></INPUT></TD>
+				</TR>
+				<!-- Line 5: subtraction -->
+				<TR>
+					<TD>5.</TD>
+					<TD>Subtract Line 4 from Line 3.</TD>
+					<TD><INPUT TYPE = "text" NAME = "line5" SIZE = "12" onChange = "compute()"></INPUT></TD>
+				</TR> 
+				<!-- Tax -->
+				<TR>
+					<TD>6.</TD>
+					<TD>This is your tax, from 1996 tax rate schedules</TD>
+					<TD><INPUT TYPE = "text" NAME = "tax" SIZE = "12" onChange = "compute()"></INPUT></TD>
+				</TR>
+			</TABLE>
+		</FORM>
+	</body>
+</html>
